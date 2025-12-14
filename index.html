@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="main-container">
+        
+        <header>
+            <h1><i class="fa-solid fa-calculator"></i> OmniCalc</h1>
+            <button id="themeToggle" class="icon-btn">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+        </header>
+
+        <div class="tabs">
+            <button id="tab-age" class="tab-btn active" onclick="switchTab('age')">Age</button>
+            <button id="tab-percent" class="tab-btn" onclick="switchTab('percent')">Percent</button>
+            <button id="tab-about" class="tab-btn" onclick="switchTab('about')">About Us</button>
+        </div>
+
+        <div id="section-age" class="content-section active">
+            <div class="card">
+                <h3>Enter Date of Birth</h3>
+                <div class="input-row">
+                    <input type="date" id="dobInput" class="big-input date-input">
+                    <button onclick="calculateAge()" class="primary-btn">Calculate</button>
+                </div>
+
+                <div id="ageResult" class="result-box hidden">
+                    <p class="label">You are currently</p>
+                    <h2 id="ageMain">0 Years</h2>
+                    <div class="details-grid">
+                        <div>
+                            <span>Next Birthday</span>
+                            <strong id="nextBday">-</strong>
+                        </div>
+                        <div>
+                            <span>Born On</span>
+                            <strong id="bornDay">-</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="section-percent" class="content-section hidden">
+            
+            <div class="card percent-card blue-border">
+                <h3>Find Percentage</h3>
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <span class="mini-label">What is</span>
+                        <input type="number" id="c1_x" class="big-input" placeholder="20">
+                    </div>
+                    <span class="symbol">%</span>
+                    <div class="input-wrapper">
+                        <span class="mini-label">of</span>
+                        <input type="number" id="c1_y" class="big-input" placeholder="150">
+                    </div>
+                </div>
+                <div class="action-row">
+                    <button onclick="calcType1()" class="action-btn blue-btn">Calculate</button>
+                    <span id="res1" class="result-text">-</span>
+                </div>
+            </div>
+
+            <div class="card percent-card purple-border">
+                <h3>Find X in Y</h3>
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <input type="number" id="c2_x" class="big-input" placeholder="50">
+                    </div>
+                    <span class="text-middle">is what % of</span>
+                    <div class="input-wrapper">
+                        <input type="number" id="c2_y" class="big-input" placeholder="200">
+                    </div>
+                </div>
+                <div class="action-row">
+                    <button onclick="calcType2()" class="action-btn purple-btn">Calculate</button>
+                    <span id="res2" class="result-text">-</span>
+                </div>
+            </div>
+
+            <div class="card percent-card pink-border">
+                <h3>Percentage Change</h3>
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <span class="mini-label">From</span>
+                        <input type="number" id="c3_x" class="big-input" placeholder="Old">
+                    </div>
+                    <span class="text-middle">to</span>
+                    <div class="input-wrapper">
+                        <span class="mini-label">New</span>
+                        <input type="number" id="c3_y" class="big-input" placeholder="New">
+                    </div>
+                </div>
+                <div class="action-row">
+                    <button onclick="calcType3()" class="action-btn pink-btn">Calculate</button>
+                    <span id="res3" class="result-text">-</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="section-about" class="content-section hidden">
+            <div class="card about-card">
+                <div class="profile-icon">
+                    <i class="fa-solid fa-user-astronaut"></i>
+                </div>
+                <h2>Radhe Enterprises</h2>
+                <p class="tagline">Making Calculations Simple & Fast.</p>
+                
+                <div class="about-desc">
+                    <p>Welcome to our Pro Calculator App. We provide fast and privacy-focused tools for your daily needs.</p>
+                    <ul class="features-list">
+                        <li><i class="fa-solid fa-check"></i> 100% Free to use</li>
+                        <li><i class="fa-solid fa-check"></i> Works Offline</li>
+                        <li><i class="fa-solid fa-check"></i> Data Stays on Device</li>
+                    </ul>
+                </div>
+
+                <div class="social-links">
+                    <a href="#" class="social-btn"><i class="fa-brands fa-github"></i></a>
+                    <a href="#" class="social-btn"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="mailto:contact@example.com" class="social-btn"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+
+                <div class="version-info">
+                    Version 1.0.0 | Made with <i class="fa-solid fa-heart text-red"></i> in India
+                </div>
+            </div>
+        </div>
+
+        <div class="history-container">
+            <div class="history-header">
+                <h3><i class="fa-solid fa-clock-rotate-left"></i> History</h3>
+                <button onclick="clearHistory()" class="clear-btn">Clear</button>
+            </div>
+            <div id="historyList" class="history-list">
+                </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
